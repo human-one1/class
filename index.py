@@ -16,7 +16,7 @@ def index():
     homepage += "<a href=/hello>相關工作介紹</a><br>"
     homepage += "<a href=/text>職涯測驗結果</a><br>"
     homepage += "<a href=/name>求職履歷自傳</a><br>"
-    homepage += "<br><a href=/read>讀取Firestore資料</a><br>"
+    homepage += "<br><a href=/read>選修課程查詢</a><br>"
     return homepage
 
 @app.route("/aboutme")
