@@ -49,14 +49,16 @@ def welcome():
     user = request.values.get("nick")
     return render_template("welcome.html", name=user)
 
-@app.route("/read")
-def read():
-    Result = ""     
-    collection_ref = db.collection("靜宜資管")    
-    docs = collection_ref.order_by("mail", direction=firestore.Query.DESCENDING).get()    
-    for doc in docs:         
-        Result += "文件內容：{}".format(doc.to_dict()) + "<br>"    
-    return Result
+@app.route("/account", methods=["GET", "POST"])
+def account():
+    if request.method == "POST":
+        user = request.form["user"]
+        pwd = request.form["pwd"]
+        result = "課程關鍵字：" + user 
+        return result
+    else:
+        return render_template("post.html")
+
 
 
 
